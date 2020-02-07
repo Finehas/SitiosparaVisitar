@@ -1,0 +1,78 @@
+@import url(href="https://fonts.googleapis.com/css?family=lato:400,900")
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+body,html{
+	background: red;
+}
+.dib{
+	background-color: #000;
+	border-style: double;
+	border-color: red;
+}
+
+.container {
+	position: relative;
+	top: 50px;
+	width: 100%;
+	height: auto;
+	background: none;
+	background-color: black ;
+	margin-left: center;
+}
+
+.container .list-image{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.container .list-image li{
+	margin-right: 5px;
+	margin-bottom: 5px;
+	list-style: none;
+}
+
+.container .list.image li .container_image{
+	position: relative;
+	width: 250px;
+	height: 1;
+}
+
+.container .list-image li .container_image img{
+	position: relative;
+	width: 450px;
+	height: 250px;
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+}
+.container .list-image li .container_image .information_image{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 40px;
+	background: none;
+	display: flex;
+}
+
+.container .list-image li .container_image .imformation_image .name_image{
+	position: relative;
+	display: block;
+	padding: 6px 12px;
+	height: 35px;
+	line-height: 15px;
+	width: auto;
+	text-decoration: none;
+	color: #888;
+	font-family:sans-serif;
+	font-size: 24px;
+	border:radius: 90px;
+	border:3px solid red;
+}
+.canti{
+	color: white;
+}
+
+
