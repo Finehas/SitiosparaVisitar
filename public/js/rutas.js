@@ -72,6 +72,8 @@ methods:
 			toastr.error("Ruta eliminada");
 			this.editando=false;
 			this.auxRuta="";
+		}).catch(function(response){
+			toastr.error("Elimina la relación de esta ruta con las localidades");
 		});
 	},
 	obligar:function(){

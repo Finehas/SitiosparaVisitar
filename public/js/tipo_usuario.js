@@ -61,6 +61,8 @@ methods:
 			toastr.error("Tipo de Usuario eliminado");
 			this.editando=false;
 			this.auxTipo="";
+		}).catch(function(response){
+			toastr.error("Verifica que no hay usuarios con este permiso");
 		});
 	},
 	editarTipo:function(id){

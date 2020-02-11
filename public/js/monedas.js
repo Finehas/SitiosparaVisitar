@@ -75,6 +75,8 @@ methods:
 			toastr.error("Moneda eliminada");
 			this.editando=false;
 			this.auxMoneda="";
+		}).catch(function(response){
+			toastr.error("Asegurate que la moneda no se use en ningún país");
 		});
 	},
 	editarMoneda:function(id){

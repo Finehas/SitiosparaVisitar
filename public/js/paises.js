@@ -113,6 +113,8 @@ methods:{
 			this.salir();
 			this.getPais();
 			toastr.error("Pais eliminado");
+		}).catch(function(response){
+			toastr.error("Asegurate que el pais no tenga provincias a su nombre");
 		});
 	},
 	obligar:function(){

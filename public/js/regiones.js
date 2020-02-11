@@ -108,6 +108,8 @@ methods:
 			this.salir();
 			this.getRegion();
 			toastr.error("Region eliminada");
+		}).catch(function(response){
+			toastr.error("Asegurate que los municipios no pertenezcan a esta region");
 		});
 	},
 	editarRegion:function(id){
