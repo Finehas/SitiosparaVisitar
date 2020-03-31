@@ -26,6 +26,7 @@ class Paises extends Model
         'idioma2_es',
         'idioma2_en',
         'id_moneda',
+        'cantidad_visitantes',
     ];
     public function moneda(){
         return $this->belongsTo(Monedas::class,'id_moneda','id_moneda');

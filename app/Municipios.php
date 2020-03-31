@@ -23,7 +23,8 @@ class Municipios extends Model
         'dato2_en',
         'dato3_es',
         'dato3_en',
-        'id_provincia'
+        'id_provincia',
+        'cantidad_visitantes',
     ];
     public function estado(){
         return $this->belongsTo(Regiones::class,'id_provincia','id_provincia');

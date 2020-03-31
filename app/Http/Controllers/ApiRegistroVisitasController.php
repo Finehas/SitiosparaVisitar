@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Visita_Sitios;
+use App\Sitios;
 use App\Municipios;
-class ApiMunicipiosController extends Controller
+use App\Regiones;
+use App\Paises;
+class ApiRegistroVisitasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +18,6 @@ class ApiMunicipiosController extends Controller
      */
     public function index()
     {
-        return Municipios::all();  
         
     }
 
@@ -24,10 +27,28 @@ class ApiMunicipiosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $r)
     {
-        //
-        
+        $records=[];
+        $visitas=$r->get('visitas');
+
+        for ($i=0;$i<count($visitas);$i++) 
+        { 
+            $records[]=[
+                'id_usuario'=>$r->get('id_usuario'),
+                'id_sitio'=>$visitas[$i]['id_sitio'],
+                'valoracion'=>$visitas[$i]['valoracion']
+            ];
+            $cant=$visitas[$i]['cantidad_visitantes'];
+            $id=$visitas[$i]['id_sitio'];
+
+            DB::update("UPDATE sitios 
+                SET cantidad_visitantes=cantidad_visitantes+$cant                
+                WHERE id_sitio='$id'");
+        }
+
+         Visita_Sitios::insert($records);
+
     }
 
     /**
@@ -39,8 +60,7 @@ class ApiMunicipiosController extends Controller
     public function show($id)
     {
         //
-        $municipio=Municipios::find($id);
-        return $municipio;
+        
     }
 
     /**
@@ -53,15 +73,6 @@ class ApiMunicipiosController extends Controller
     public function update(Request $request, $id)
     {
       
-        $ruta=Rutas::find($id);
-        $ruta->nombre_es=$request->get('nombre_es');
-        $ruta->nombre_en=$request->get('nombre_en');
-        $ruta->longitud_km=$request->get('longitud_km');
-        $ruta->longitud_milla=$request->get('longitud_milla');
-        $ruta->ubicacion=$request->get('ubicacion');
-        $ruta->update();
-
-
        
     }
 
@@ -73,11 +84,6 @@ class ApiMunicipiosController extends Controller
      */
     public function destroy($id)
     {
-        //
-         return Rutas::destroy($id);
-    }
-    public function getMunicipios($id){
-    $municipios = DB::select("SELECT * FROM localidades WHERE id_provincia = $id");
-    return $municipios;
+
     }
 }

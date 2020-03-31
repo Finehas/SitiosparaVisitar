@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use App\Municipios;
-class ApiMunicipiosController extends Controller
+use App\Sitios;
+class ApiSitiosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ApiMunicipiosController extends Controller
      */
     public function index()
     {
-        return Municipios::all();  
+        return Sitios::all();  
         
     }
 
@@ -76,8 +76,8 @@ class ApiMunicipiosController extends Controller
         //
          return Rutas::destroy($id);
     }
-    public function getMunicipios($id){
-    $municipios = DB::select("SELECT * FROM localidades WHERE id_provincia = $id");
-    return $municipios;
+    public function getSitios($id){
+    $sitios = DB::select("SELECT * FROM sitios WHERE id_sitio = $id");
+    return $sitios;
     }
 }

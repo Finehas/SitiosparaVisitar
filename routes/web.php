@@ -35,6 +35,9 @@ Route::get('adminregiones', function () {
 Route::get('admintipo_usuarios', function () {
     return view('cruds.tipo_usuarios');
 });
+Route::get('visita', function () {
+    return view('cruds.visitas');
+});
 Route::get('error', function () {
     return view('usuarionoencontrado');
 });
@@ -47,6 +50,17 @@ Route::apiResource('regionescontrol','ApiRegionesController');
 Route::apiResource('monedascontrol','ApiMonedasController');
 Route::apiResource('tipousuarioscontrol','ApiTipo_UsuariosController');
 Route::apiResource('usuarioscontrol','ApiUsuariosController');
+Route::apiResource('sitioscontrol','ApiSitiosController');
+Route::apiResource('registroVisita','ApiRegistroVisitasController');
 
 Route::get('validar','AccesoController@validar'); 
 Route::get('salir','AccesoController@salir');
+Route::get('getEstados/{id}',
+    ['as'=>'getEstados',
+    'uses'=>'ApiPaisesController@getEstados',]);
+Route::get('getMunicipios/{id}',
+    ['as'=>'getMunicipios',
+    'uses'=>'ApiMunicipiosController@getMunicipios',]);
+Route::get('getSitios/{id}',
+    ['as'=>'getSitios',
+    'uses'=>'ApiSitiosController@getSitios',]);

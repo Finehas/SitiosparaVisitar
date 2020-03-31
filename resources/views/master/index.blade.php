@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="adminlte/Ionicons/css/ionicons.min.css">
   <link rel="stylesheet" href="css/toastr.css">
 
+
   <title>@yield('titulo')</title>
 
   <!-- Custom fonts for this template-->

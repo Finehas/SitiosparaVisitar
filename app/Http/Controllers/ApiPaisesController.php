@@ -98,4 +98,8 @@ class ApiPaisesController extends Controller
         //
          return Paises::destroy($id);
     }
+    public function getEstados($id){
+    $estados = DB::select("SELECT * FROM estados_provincias WHERE id_pais= $id");
+    return $estados;
+    }
 }

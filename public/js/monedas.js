@@ -1,7 +1,6 @@
 var ruta= document.querySelector("[name=route]").value;
 var urlMoneda=ruta + '/monedascontrol';
 
-function init(){
 new Vue({
 	http:{
 		headers:{

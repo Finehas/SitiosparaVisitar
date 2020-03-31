@@ -20,7 +20,8 @@ class Regiones extends Model
         'ubicacion',
         'capital_es',
         'capital_en',
-    	'id_pais'
+    	'id_pais',
+        'cantidad_visitantes',
     ];
     public function pais(){
         return $this->belongsTo(Paises::class,'id_pais','id_pais');
